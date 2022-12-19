@@ -1,0 +1,70 @@
+*{
+    margin: 0px;
+}  
+
+hr{
+    margin: auto;
+    width: 80%;
+}
+
+.avis{
+    text-align: center;
+}
+
+.détails{
+    text-align: center;
+}
+.mettreCom{
+    text-align: center;
+}
+#header{
+    padding: 70px;
+    text-align: center;
+    /* background: rgba(117, 219, 137, 0.8); */
+    /* color: white; */
+}
+
+.description-restau{
+    text-align: center;
+    /* border: 3px solid grey; */
+    padding: 5%;
+    /* background-color: rgba(201, 159, 241, 0.5); */
+    font-weight: bold;
+    font-size: large;
+}
+
+.colonne-de-gauche{
+    position: relative;
+    float: left;
+    width: 49%;
+    /* border: 3px solid grey; */
+}
+
+.petite-photo img{
+    display: block;
+    width: 80%;
+    height: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 3%;
+}
+
+.colonne-de-droite{
+    position: relative;
+    float: right;
+    width: 49%;
+    /* border: 3px solid yellow; */
+}
+
+.menu{
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.description{
+    margin-top: -2%;
+    margin-bottom: 3%;
+    text-align: center;
+}
+
+

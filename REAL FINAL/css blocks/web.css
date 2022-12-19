@@ -1,0 +1,322 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+/*POSITION IN CSS
+5 VARIABLES:
+Static :
+When we declare an element, it will be automatically be static
+it will be on normal flow (hiện thị theo thứ tự từ trên xuống dưới)
+bloc 1
+bloc 2
+bloc 3
+(<p> or <div>)
+
+top, left, right, bottom, z-index won't afect a static element
+
+Relative:
+respect the normal flow.  Now top, left, right , bottom, z-index will affect the element
+for example top : 20px will move down the bloc for 20px
+
+absolute
+fixed
+sticky
+
+Position static: vị trí/tĩnh mặc định của phần tử và bạn đặt đâu phần tử sẽ nằm ở đó.
+Position relative: vị trí của phần tử sẽ tương đối so với vị trí tĩnh bạn đặt và khoản không gian xung quanh phần tử sẽ được giữ nguyên.
+Position fixed: vị trí sẽ nằm cố định một chỗ, dù bạn có làm gì, phần tử vẫn nằm cố định 1 vị trí trên màn hình.
+Position absolute: vị trí của phần tử sẽ được xác định từ padding của phần tử cha.
+Position sticky: vị trí của phần tử sẽ được định vị khi người dùng sử dụng thanh cuộn.
+
++Static : n'est pas considéré comme un élément positionné, left, top, right et bottom sont ignorés. Valeur par défaut.
+
++Relative : l'élément est considéré comme positionné, le positionnement se fera par rapport à l'endroit où il est positionné dans le flux (où l'élément a été déclaré dans le code HTML), sauf pour certain éléments de tableau.
+
++Absolute : l'élément est considéré comme positionné, le positionnement se fera par rapport au coin haut gauche de la page HTML ou par rapport au premier parent trouvé qui n'est pas static. Son comportement est de type block et sort du flux.
+
++Fixed : l'élément est considéré comme positionné, reste fixe, ne bouge pas quand défile l'écran, le point d'origine est coin haut gauche de la zone de contenu de la fenêtre. Son comportement est de type block et sort du flux.
+
++Sticky (CSS3) : c'est un mixte entre la position relative et fixe. L'élément est considéré
+en position relative jusqu'à ce que le défilement de la fenêtre soit telle que l'élément serait à moins de la valeur du seuil (top, left, right, bottom).
+Au-delà de ce seuil, l'élément serait fixé à la valeur du seuil qui est obligatoire.
+Son positionnement se fera par rapport au coin haut gauche de la page HTML ou par rapport au premier parent trouvé qui n'est pas static et à l'intérieur de cet élément.
+*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /*font-family: Dancing Script, sans-serif;*/
+}
+
+body {
+    min-height: auto;
+    /*max-width: auto;*/
+    /*background-color: papayawhip;*/
+    margin: 0 auto;
+    background-image: url(../background/watercolorbackground.jpeg);
+    background-position: center;
+    /*repeter l'image*/
+    background-repeat: repeat;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    /*background-position: center;*/
+    /*background-size: cover;*/
+    /*top: 0;*/
+    /*z-index: -1;*/
+    /*filter: brightness(30%);*/
+}
+
+nav {
+    display: flex;
+    width: 100%;
+    background: blueviolet;
+    position: relative;
+    justify-content: space-between;
+    text-align: center;
+    padding: 15px 30px;
+    box-shadow: 0 0 10px black;
+    background: rgba(0,0,0,0.5);
+}
+
+nav .icon {
+    /*font-size: 45px; !*SIZE *!*/
+    /*font-weight: 820; !*THICKNESS*!*/
+    /*color: gold;*/
+    cursor: pointer; /*ABLE TO POINT AT THE SYMBOL*/
+    right: 0;
+    top: 0;
+    position: relative;
+    /*font-family: Dancing Script, sans-serif;*/
+    /*    REMOVE LINE*/
+    /*text-decoration: none;*/
+    /*text-outline: darkgreen;*/
+    width: 100px;
+    height: 100px;
+
+}
+
+nav ol {
+    display: flex;
+    list-style: none;
+    margin: auto 0;
+}
+
+nav ol li {
+    margin: 0 2px;
+}
+
+nav ol li a {
+    color: black;
+    font-size: 20px;
+    font-family: Lobster, sans-serif;
+    text-decoration: none;
+    text-transform: capitalize;
+    Letter-spacing: 1px;
+    padding: 10px 15px;
+}
+
+nav ol li:hover a {
+    /*ROUNDERING CORNERS*/
+    border-bottom: 2px solid cadetblue;
+}
+
+nav .search_box {
+    display: flex;
+    margin: auto 0;
+    /*Hauteur box*/
+    height: 35px;
+    /*Increase et decrease the space  between each line, maybe numbers or decimals */
+    line-height: 150px;
+}
+
+nav .search_box input {
+    border: none;
+    outline: none;
+    background: antiquewhite;
+    height: 100%;
+    padding: 0 10px;
+    font-size: 20px;
+    width: 350px;
+
+    /*ROUDNERING BOX*/
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 0px;
+    -moz-border-radius-bottomright: 0px;
+    -moz-border-radius-bottomleft: 5px;
+    -webkit-border-radius: 5px 0px 0px 5px;
+    border-radius: 5px 0px 0px 5px;
+    /*    topleft topright bottomright bottomleft*/
+}
+
+nav .search_box span {
+    color: black;
+    font-size: 20px;
+    background: antiquewhite;
+    height: 100%;
+    padding: 8px;
+    position: relative;
+    cursor: pointer;
+    z-index: 1;
+
+    /*ROUDNERING BOX*/
+    -moz-border-radius-topleft: 0px;
+    -moz-border-radius-topright: 5px;
+    -moz-border-radius-bottomright: 5px;
+    -moz-border-radius-bottomleft: 0px;
+    -webkit-border-radius: 0px 5px 5px 0px;
+    border-radius: 0px 5px 5px 0px;
+}
+
+/*add to after, Example :
+<p>hi my name is</p>
+
+p:after {
+content: Thanh;
+}
+ */
+nav .search_box span:hover {
+    color: #fff;
+}
+
+nav .search_box span::after {
+    height: 100%;
+    width: 0%;
+    content: '';
+    background: red;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: -1;
+    transition: 0.3s;
+
+    -moz-border-radius-topleft: 0px;
+    -moz-border-radius-topright: 5px;
+    -moz-border-radius-bottomright: 5px;
+    -moz-border-radius-bottomleft: 0px;
+    -webkit-border-radius: 0px 5px 5px 0px;
+    border-radius: 0px 5px 5px 0px;
+}
+
+nav .search_box span:hover::after {
+    width: 100%;
+}
+
+nav .bar {
+    position: relative;
+    margin: auto;
+    display: none;
+}
+
+nav .bar span {
+    /*Position absolute: vị trí của phần tử sẽ được xác định từ padding của phần tử cha.*/
+    position: absolute;
+    color: black;
+    font-size: 35px;
+
+}
+
+input[type="checkbox"] {
+    -webkit-appearance: none;
+    display: none;
+}
+/*EM TAILLE D'ECRAN*/
+@media screen and (max-width: 100em ) {
+    nav {
+        display: block;
+        padding: 0;
+    }
+
+    nav .icon {
+        display: inline-block;
+        padding: 15px 30px;
+    }
+
+    nav .search_box {
+        width: 100%;
+        display: inline-flex;
+        justify-content: center;
+        margin-bottom: 15px;
+    }
+
+    nav .search_box input {
+        width: 90%;
+    }
+
+    nav ol {
+        display: flex;
+        flex-direction: column;
+        background: antiquewhite;
+        height: 0;
+        visibility: hidden;
+        transition: 0.3s;
+    }
+
+    nav ol li {
+        text-align: center;
+        transition: 0.3s 0.1s all;
+        opacity: 0;
+    }
+
+    nav ol li a {
+        color: black;
+        font-size: 28px;
+        padding: 25px;
+        display: block;
+    }
+
+    nav ol li:nth-child(1) {
+        transform: translateX(-150px);
+    }
+
+    nav ol li:nth-child(2) {
+        transform: translateX(-200px);
+    }
+
+    nav ol li:nth-child(3) {
+        transform: translateX(-250px);
+    }
+
+    nav ol li:nth-child(4) {
+        transform: translateX(-300px);
+    }
+
+    nav ol li:nth-child(5) {
+        transform: translateX(-350px);
+    }
+
+    nav .bar {
+        display: block;
+        position: absolute;
+        top: 20px;
+        right: 80px;
+        cursor: pointer;
+    }
+
+    nav .bar #times {
+        display: none;
+    }
+
+    #check:checked ~ nav .bar #times {
+        display: block;
+    }
+
+    #check:checked ~ nav .bar #bars {
+        display: none;
+    }
+
+    #check:checked ~ nav ol {
+        visibility: visible;
+        height: 600px;
+    }
+
+    /*COMMENTAIRE!!!!!!!!!!!!!!!!!*/
+    #check:checked ~ nav ol li:nth-child(1),
+    #check:checked ~ nav ol li:nth-child(2),
+    #check:checked ~ nav ol li:nth-child(3),
+    #check:checked ~ nav ol li:nth-child(4),
+    #check:checked ~ nav ol li:nth-child(5) {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+

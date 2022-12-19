@@ -1,0 +1,260 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+/*BODY BACKGROUND */
+body {
+    display: flex;
+    min-height: 100vh;
+    align-items: center;
+    /*background gradiant*/
+    background-image: url("../background/cat8bitbground.gif");
+
+    background-repeat: no-repeat;
+    background-size: 1920px 1080px;
+    background-attachment: fixed;
+    justify-content: center;
+    padding: 30px;
+}
+
+/*Sign Up & LOGIN box/container*/
+.container {
+    position: relative;
+    /*ROUNDERING CORNERS*/
+    border-radius: 25px;
+
+    background-image: url("../background/cherryblossombackground.jpg");
+    background-repeat: no-repeat;
+    background-size: 800px;
+    background-position: left;
+    max-width: 850px;
+    width: 100%;
+    padding: 40px 30px;
+    /*GLOWING BOX (X OFFSET, Y OFFSET AXE,BLUR SIZE, SPREAD SIZE, COLOR)*/
+    box-shadow: 0 0 5px 9px palevioletred, /* middle magenta */ 0 0 6px 10px palegreen; /* outer cyan */
+    /*Permet en même temps de créer un contexte 3D,
+    c'est à dire que les fils se serviront du "point de vue" comme point de fuite.
+     Permet de donner une perspective aux objets positionnés dans cet espace 3D.*/
+    perspective: 4500px;
+}
+
+/*BOX/IMAGE of login*/
+.container .cover {
+    position: absolute;
+    height: 100%;
+    width: 50%;
+    top: 0;
+    left: 50%;
+    /*    AXE Z qui va devant et derriere*/
+    z-index: 98;
+    transition: all 1s ease;
+    transform-origin: left;
+    transform-style: preserve-3d;
+
+}
+/*FLIPPED THE IMAGE, ON UTILISE PLUS*/
+/*.container #flip:checked ~ .cover {*/
+/*     transform: rotateY(-180deg); */
+/*}*/
+/**/
+.container .cover::before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    /*background: palevioletred;*/
+    opacity: 0.5;
+    z-index: 98;
+    border-radius: 0px 25px 25px 0px;
+}
+/*PHRASE SUR LA PHOTO LOGIN SIGNUP*/
+.container .cover .text {
+    position: absolute;
+    z-index: 111;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /*transform-style: preserve-3d;*/
+    /*backface-visibility: hidden;*/
+}
+.cover .text .text-1, .cover .text .text-2 {
+    font-size: 26px;
+    font-weight: 600;
+    color: white;
+    text-align: center;
+    -webkit-backface-visibility: hidden;
+}
+.cover .text .text-2 {
+    font-size: 15px;
+    font-weight: 500;
+}
+
+/*IMAGES POUR LOGIN SIGNUP */
+.container .cover img{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    z-index: 12;
+    backface-visibility: hidden;
+    /*   arrondir  */
+    border-radius: 0px 25px 25px 0px;
+    /*NE FONCTIONNE PAS*/
+    -webkit-backface-visibility: hidden;
+}
+
+
+/*ID FLIP quand on coche la case, on peut acceder a la partie sign up */
+
+.form .form-content .input-box .i {
+    position: relative;
+    left: 15px;
+}
+
+.container .form {
+    height: 100%;
+    width: 100%;
+    background: #0e90d2;
+}
+
+.container .form-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.form-content .login-form, .form-content .signup-form {
+    width: calc(100% / 2 - 25px);
+    /*background: gold;*/
+}
+
+form .form-content .title {
+    position: relative;
+    font-size: 30px;
+    font-weight: 850;
+    color: black;
+}
+
+/*bar length, height under login and sign up*/
+form .form-content .title:before {
+    content: '';
+    position: absolute;
+    height: 3px;
+    width: 30px;
+    left: 0;
+    bottom: 0;
+    background: blueviolet;
+}
+
+/*small bar under signup, length*/
+form .signup-form .title:before {
+    width: 25px;
+}
+
+form .form-content .input-boxes {
+    margin-top: 30px;
+}
+
+form .form-content .input-box {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    width: 100%;
+    margin: 1px 0;
+    position: relative;
+}
+
+.form-content .input-box input {
+    height: 100%;
+    width: 100%;
+    outline: none;
+    border: none;
+    padding: 0 30px;
+    font-size: 17px;
+    font-weight: 500;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+    background: transparent;
+    transition: all 0.7s ease;
+
+}
+
+/*CHANGE QUE COULEUR QUAND ON CLIQUE DESSUS */
+.form-content .input-box input:focus,
+.form-content .input-box input:valid {
+    border-color: #FFB6C1;
+}
+
+.form-content .input-box i {
+    position: absolute;
+    font-size: 17px;
+    color: #FFB6C1;
+}
+/*COULEUR DE LA PHRASE ALREADY HAVE AN ACCOUNT OU DON'T HAVE AN ACCOUNT*/
+form .form-content .text {
+    font-size: 14px;
+    font-weight: 550;
+    color: black;
+    text-decoration: none;
+}
+
+form .form-content .text a {
+    text-decoration: none;
+}
+
+/*Forgot password soit souligner*/
+form .form-content .text:hover {
+    text-decoration: underline;
+}
+
+form .form-content .button {
+    color: red;
+    margin-top: 40px;
+}
+
+/*LOGIN & SIGNUP BUTTON COLOR*/
+form .form-content .button button {
+    color: white;
+    background: #FFB6C1;
+    border-radius: 6px;
+    padding: 0;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    height: 100%;
+    width: 100%;
+    border: none;
+}
+/*change de couleur quand on clique dessus*/
+form .form-content .button button:hover {
+    background: palevioletred;
+}
+
+
+form .form-content .log-in-text,
+form .form-content .sign-up-text{
+text-align: center;
+    margin-top: 25px;
+}
+/*MAKE THE CHECK BOX INVISIBLE*/
+.container #flip{
+    display: none;
+}
+/*CODE POUR RENDRE LOGIN SIGNUP RESPONSIVE*/
+@media  (max-width:  730px) {
+    .container .cover{
+        display: none;
+    }
+    .form-content .login-form, .form-content .signup-form {
+        width: 100%;
+        /*background: gold;*/
+    }
+    .form-content .signup-form{
+        display: none;
+    }
+}

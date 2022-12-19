@@ -1,0 +1,118 @@
+/* si du code et commenté alors à priori il ne sert à rien ou un élement de style que l'on veut changer*/
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.containerCarousel {
+    display: flex;
+    flex-direction: column; /*permet d'afficher le reste du contenu directement comme une colonne et pas comme une image avec du texte à côté par exemple*/
+    /* place l'élement au centre */
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    width: 70%;
+    height: auto;
+    padding-top: 5rem;
+}
+
+.slideshow {
+    height: 100%;
+    overflow: hidden; /*empeche les images de s'afficher si elles ne sont pas au centre du carousel*/
+    position: relative;
+}
+
+.slideshow-wrapper {
+    display: flex; /*jsp pk mais sans ça, ça fait n'importe quoi*/
+    width: 400%; /*donne une taille de 400% au carousel, soit 4 images à 100%*/
+    height: 100%;
+    position: relative;
+    /* Change the animation settings */
+    animation: slideshow 20s infinite;
+}
+
+/* caracterise les contenaires des images */
+.slide {
+    width: 100%;
+    height: 100%;
+}
+
+.slide-img {
+    border-radius: 15px; /*  va donner un bord arrondi aux images */
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Le contenu remplacé est dimensionné pour maintenir son ratio d'affichage tout en remplissant toute la boîte de contenu. 
+    La taille réelle est calculée pour couvrir la zone décrite par la hauteur et la largeur de l'élément. 
+    Si les ratios de l'objet et de la boîte ne correspondent pas, le contenu remplacé sera rogné. */
+}
+
+/* animation du carousel
+% de gauche sert à caractériser le temps en pourcentage par rapport à la valeur de temps d'animation totale donné dans slideshow-wrapper
+% de droite, donne un défilement de -100% soit une image sur la gauche  */
+@keyframes slideshow {
+    0%{ left: 0;}
+    20%{ left: 0;}
+    25%{left: -100%;}
+    45%{left: -100%;}
+    50%{left: -200%;}
+    70%{left: -200%;}
+    75%{left: -300%;}
+    95%{left: -300%;}
+    100%{left: 0;}
+}
+
+
+/* donne l'apparence des boutons */
+.slide-btn {
+    background-color: rgb(255, 255, 255); /* set la couleur des boutons à blanc*/
+    border-radius: 50%; /* set la forme des boutons et indique que le bouton sera rond*/
+    border: .1rem solid #1e242c; /* set les caractéristiques de la bordure autour des boutons, soit dans l'odre la taille 0.1 rem
+    (rem = "La taille de la police pour l'élément racine."), solid qui donne une bordure sans coupure et visible, et enfin la couleur */
+    width: .8rem; /*donne la taille des boutons*/
+    height: .8rem;
+    cursor: pointer; /*fait en sorte que lorsque l'on passe la souris dessus elle passe d'un curseur "classique" à un curseur qui indique que l'on peut cliquer dessus*/
+
+    /* style pour positioner les boutons en bas du carousel */
+    position: absolute;
+    bottom: 3%; /*dit que les boutons seront toujours positionnés 3% au dessus du bas de*/
+    /* transform: translateX(-50%); */
+    z-index: 10; /* si on considère les élements comme une pile (ici images et boutons donc seulement 2),
+    alors les boutons sur une pile de 10 serait le premier donc le premier élément à être afficher, pour résumer permet que les boutons ne soit pas cachés sous l'image*/
+}
+
+/* positionne les boutons individuellement par rapport à leur contenaire */
+.slide-btn-1 {left: 45.5%;}
+.slide-btn-2 {left: 48.5%;}
+.slide-btn-3 {left: 51.5%;}
+.slide-btn-4 {left: 54.5%;}
+
+/* animation des boutons 
+animation none --> désactive l'animation lorsque le bouton est cliqué
+left indique sur quel image le focus doit s'effectuer*/
+
+.slide-btn-1:focus~.slideshow-wrapper {
+    animation: none; 
+    left: 0;
+}
+
+.slide-btn-2:focus~.slideshow-wrapper {
+    animation: none;
+    left: -100%;
+}
+
+.slide-btn-3:focus~.slideshow-wrapper {
+    animation: none;
+    left: -200%;
+}
+
+.slide-btn-4:focus~.slideshow-wrapper {
+    animation: none;
+    left: -300%;
+}
+
+/* couleur de fond du focus de bouton (lorsque le bouton est cliqué)*/
+.slide-btn:focus {
+    background-color: #76797e;
+}
